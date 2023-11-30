@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD HOTELS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+</head>
+
+<body>
+
+    {{> navbar data=details}} {{!-- // use of partial --}}
+    {{> slider slides=slides}}
+
+
+    {{!-- ----------------booking Banner----------------------- --}}
+
+    <section id="booking-banner">
+        <div class="container py-5" style="height:fit-content;width:100">
+            <div class="row">
+                <div class="col-md-12 text-center text-light">
+                    <h2>Unlock Your Dream Getaway with Exclusive Hotel Deals!</h2>
+                    <p>Indulge in luxury and comfort with our handpicked selection of hotels. Book now for unbeatable
+                        rates and exclusive offers. Whether you're planning a romantic escape, a family vacation, or a
+                        business trip, we have the perfect accommodation for you. Reserve your stay today and experience
+                        hospitality at its finest. Your unforgettable journey begins here!</p>
+                    <button class="btn btn-primary">Click For Booking</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    {{!-- -----------Our Branches---- --}}
+
+    <section id="our_branches">
+        <div class="container my-5">
+            <h1 class="text-center text-secondary">Our Branches</h1>
+            <div class="row">
+                {{#each branches}}
+                <div class="col-md-4 my-4">
+
+                    <div class="card" style="background-color: #e1ecf6;">
+                        <div class="card-body">
+
+                            <div style="display:flex;justify-content:center">
+                                <img class="branches-image" src="{{this.imageUrl}}" alt="">
+                            </div>
+
+                            <h4>
+                                <div class="card-title my-2">{{this.city}}</div>
+                            </h4>
+                            <p>Sector-20 Near Defence Colony</p>
+                            <a href="#">Check</a>
+                            <a href="#" style="margin-left:3px;">Support</a>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+    {{!-- ---------------Special Offers------------- --}}
+    <section id="section-offers">
+        <h2 class="text-center text-secondary">Special Offers</h2>
+        <div class="container my-4">
+            <div id="carouselExampleAutoplaying" class="carousel slide offer-slider " data-bs-ride="carousel">
+
+                <div class="carousel-inner">
+                    {{#each offerSlider}}
+                    <div class="carousel-item {{this.class}}">
+                        <a href="#"> <img src="{{this.imageUrl}}" class="d-block w-100 offer-slider-image"
+                                alt="..."></a>
+
+                    </div>
+                    {{/each}}
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    {{!-- --------------------About Us -------------------------- --}}
+
+    <section id="aboutUs" class="aboutUs">
+        <h2 class="text-center text-secondary my-5">About Us</h2>
+        <div class="container">
+            <div class="row">
+                {{#each aboutContent}}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body aboutUsCard">
+                            <img src="./public/images/ADlogo.jpg" alt="" class="aboutUsimage">
+                            <div class="content-about-us">
+
+                                <h4>{{this.heading}}</h4>
+                                <p>
+                                    {{this.content}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+
+
+    {{!-- -------------------Register Section ------------------ --}}
+    <section id="register-section" class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-secondary text-center">Register with THE AD Hotels</h2>
+                    <form class="register-form" action="/registerPage" method="post">
+                        <div class="mb-3">
+                            <label for="inputName" class="form-label">Enter Your Name</label>
+                            <input name="name" type="text" class="form-control" id="inputName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input name="email" type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text text-light">We'll never share your email with anyone
+                                else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="age" class="form-label">Enter Your Age</label>
+                            <input name="age" type="number" class="form-control" id="age">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary ">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    {{!-- ------------------footer------------- --}}
+    <section id="footer" style="height:fit-content;width:100%;background-color:black">
+        <div class="container text-center py-4 text-light">
+            <span>Copyright © 2023 AD Hotels. All rights reserved.</span>
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
